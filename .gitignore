@@ -1,0 +1,6 @@
+# датасеты скачиваются автоматически
+data/
+
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
