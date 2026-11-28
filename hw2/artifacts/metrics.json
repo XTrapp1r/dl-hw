@@ -1,0 +1,104 @@
+{
+  "track": "nlp",
+  "model": "ai-forever/ruBert-base",
+  "revision": "05f37a2ca9e333fd18f30cd0c96c68d274793c69",
+  "dataset": "RCC-MSU/collection3",
+  "classes": [
+    "LOC",
+    "ORG",
+    "PER"
+  ],
+  "n_train": 9301,
+  "n_val": 2153,
+  "n_test": 1922,
+  "params_total": 177722119,
+  "baseline": {
+    "majority": {
+      "f1_micro": 0.5613437195715676,
+      "f1_macro": 0.5785510074917143,
+      "precision": 0.5625762381068553,
+      "recall": 0.5601165897498178
+    },
+    "random_head": {
+      "f1_micro": 0.032463140808873255,
+      "f1_macro": 0.031846218096643564,
+      "precision": 0.01885680612846199,
+      "recall": 0.11658974981782852
+    }
+  },
+  "final": {
+    "f1_micro": 0.9775840597758406,
+    "f1_macro": 0.9761557673224015,
+    "precision": 0.9741871432117151,
+    "recall": 0.9810047488127968,
+    "token_f1": 0.9828367431003707,
+    "per_type": {
+      "LOC": {
+        "precision": 0.9806397306397306,
+        "recall": 0.9914893617021276,
+        "f1-score": 0.9860347016504443,
+        "support": 1175
+      },
+      "ORG": {
+        "precision": 0.9379905808477237,
+        "recall": 0.9514331210191083,
+        "f1-score": 0.9446640316205533,
+        "support": 1256
+      },
+      "PER": {
+        "precision": 0.9987236758136566,
+        "recall": 0.9968152866242038,
+        "f1-score": 0.9977685686962066,
+        "support": 1570
+      }
+    },
+    "validation": {
+      "f1_micro": 0.9814882032667877,
+      "f1_macro": 0.980543270850585,
+      "precision": 0.9778206364513018,
+      "recall": 0.9851833859606509,
+      "token_f1": 0.9846343805734669
+    }
+  },
+  "ablation": {
+    "setting": "freeze",
+    "split": "validation",
+    "full": {
+      "f1_micro": 0.9814882032667877,
+      "f1_macro": 0.980543270850585,
+      "precision": 0.9778206364513018,
+      "recall": 0.9851833859606509,
+      "lr": 5e-05,
+      "train_sec": 289.1279133749922,
+      "trainable_params": 177722119
+    },
+    "freeze": {
+      "f1_micro": 0.034436493738819324,
+      "f1_macro": 0.026688025443030932,
+      "precision": 0.21690140845070421,
+      "recall": 0.018702939033276657,
+      "lr": 5e-05,
+      "train_sec": 143.29711233300623,
+      "trainable_params": 5383
+    },
+    "freeze_lr_1e-3": {
+      "f1_micro": 0.8545433061562093,
+      "f1_macro": 0.8500920603026317,
+      "precision": 0.8320294523699954,
+      "recall": 0.8783094486276415,
+      "lr": 0.001,
+      "train_sec": 144.3332124169974,
+      "trainable_params": 5383
+    }
+  },
+  "errors": {
+    "correct": 4056,
+    "boundary": 49,
+    "type": 4,
+    "missed": 8,
+    "spurious": 35
+  },
+  "device": "mps",
+  "train_time_sec": 289.1279133749922,
+  "fast_mode": false
+}
